@@ -3,6 +3,10 @@ var currentPage ='#page5'
 //P5 setup() bliver kaldt en gang føre siden vises
 function setup(){
     console.log('P5 setup kaldt')
+
+    //skift til current page
+    shiftPage(currentPage)
+
     //Sæt menu op
     // hent alle sider som et array
   var allPages = selectAll('.page')
