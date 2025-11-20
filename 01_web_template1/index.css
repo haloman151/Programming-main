@@ -1,0 +1,432 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100..900;1,100..900&display=swap');
+
+
+
+
+body{
+    background-color: blanchedalmond;
+    font-family: "Roboto";
+    padding:0;
+    margin:0;
+    box-sizing: border-box;
+
+}
+
+.menu-wrapper{
+    position:fixed;
+    width:fit-content;
+    height: 100%;
+    left:0;
+    top:0;
+    z-index: 2;
+}
+
+
+.burger-icon{
+    position: fixed;
+    left:1rem;
+    top:1rem;
+    cursor: pointer;
+    font-size:2rem;
+    color:black;
+    z-index:3;
+   transition: color 0.5 ease-in-out;
+    
+}
+
+
+.menu-wrapper:has(.sidebar:hover) .burger-icon, .burger-icon:hover {
+color:white;
+}
+
+.sidebar{
+    position: relative;
+    left:-100%;
+    top:0;
+    width:100%;
+    height: 100%;
+    min-width: 15rem;
+    background-color: orangered;
+    color:aliceblue;
+    padding:4rem 1rem;
+    box-sizing: border-box;
+    transition: ease-in-out 0.3s;
+}
+
+.burger-icon:hover + .sidebar, .sidebar:hover{
+    left:0;
+    box-shadow: 0 0 10px black;
+}
+
+.sidebar a {
+    font-size: 1.5rem;
+    display: block;
+    text-decoration: none;
+    color:white;
+    margin: 1rem 0;
+    opacity: 0.5;
+    transition: opacity 0.15s ease-in-out,
+        transform 0.15s ease-in-out;
+    cursor: pointer;
+}
+
+.sidebar a:hover{
+    opacity: 1;
+    transform: translateX(0.5rem);
+    filter: drop-shadow(0 0 10px white);
+    
+}
+
+.page{
+    width:100vw;
+    height:100vh;
+    overflow:hidden;
+    /* grid layout */
+    display:grid;
+    place-items: center;
+    /* position fixed - klasse "show" viser pages*/
+    position: fixed;
+    left:-100vw;
+    transition:  1s ease-in-out all;
+
+}
+
+
+.show{
+    left:0;
+
+}
+
+/* All div's inside of pages are treated as full width*/
+.page div {
+    width:100%;
+    height:100%;
+    display:grid;
+    place-items:center;
+    
+}
+
+
+
+h1{
+    font-weight: 300;
+    font-size:3rem;
+}
+
+#page2{
+    grid-template-rows:1fr 3fr ;
+}
+
+#page2 .top{
+    background-color: orange;
+    
+}
+#page2 .bottom{
+    
+    
+    background-image: url(./assets/city.jpg);
+    background-size: cover;
+
+}
+
+#page3{
+    grid-template-columns: 1fr 1fr;
+
+}
+
+#page3 .left{
+    background-color: chartreuse;
+    grid-template-rows: 1fr 3fr;
+
+}
+
+
+#page3 .left .bottom{
+    background-color: black;
+    color:turquoise;
+
+}
+
+#page3 .right{
+    background-color: aqua;
+    
+}
+
+#page3 .right .box{
+   background-color: lemonchiffon;
+   display: grid;
+   grid-template-rows: 1fr 6fr;
+    height:50%;
+    width:80%;
+
+}
+
+#page3 .right .box .bottom{
+    background-image: url(./assets/city.jpg);
+    background-size: cover;
+}
+
+#page4{
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+
+}
+
+#grid1{
+    background-color: yellow;
+}
+
+#grid2{
+    background-color: violet;
+}
+
+#grid3{
+    background-color: blue;
+}
+
+#grid4{
+    background-color: springgreen;
+}
+
+
+#page5 {
+grid-template-columns: 1fr 1fr;
+}
+
+#page5 .right {
+grid-template-rows: 1fr 7fr;
+}
+
+#page5 .right .top {
+    background-color: brown;
+}
+
+#page5 .right .bottom {
+    background-color: black;
+    color: white;
+    overflow:hidden;
+    height: 100vh;
+    position: relative;
+}
+
+#page5 .right .bottom video{
+    object-fit: cover;
+    object-position: center;
+    width: 100%;
+    height: 100%;
+
+}
+
+#page5 .right .bottom #overlay{
+    position:absolute ;
+    display: grid;
+    place-items: center;
+}
+
+#page5 .left {
+    background-color: orange;
+}
+
+#videoButton{
+    position:absolute;
+    top:1rem;
+    left:1rem;
+    padding:0.5rem 1rem 0.5rem 1rem;
+    border-radius: 0.5rem;
+    background-color: rgba(100,100,100,0.7);
+    color: white;
+    border:1px solid lightgray;
+    z-index: 1000;
+    transition: .3 ease-in-out;
+    cursor: pointer;
+}
+
+#videobutton:hover{
+    background-color: white;
+    color:black;
+    z-index: 1000;
+}
+
+.opgave{
+    width: 100vw;
+    height: 100vh;
+    overflow:hidden;
+    position: fixed;
+    left:-100vw;
+    top:0;
+    display:grid;
+    place-items: center;
+    
+}
+
+.show{
+    left:0;
+
+}
+
+
+.opgave div{
+    width:100%;
+    height: 100%;
+    display:grid;
+    place-items: center;
+}
+
+
+#opgave1{
+    background-color: wheat;
+    grid-template-columns: 1fr 1fr;
+
+}
+
+
+#opgave1 .right .top{
+    background-color: aquamarine;
+}
+
+
+#opgave1 .right .bottom{
+    background-color: tomato;
+}
+
+
+
+#opgave2{
+    grid-template-columns: 1fr 1fr;
+
+}
+
+#opgave2 .left{
+    background-color: brown;
+}
+
+
+#opgave2 .right{
+    grid-template-rows: 5fr 5fr 5fr 5fr 5fr;
+    
+}
+
+#opgave2 .right .top{
+    background-color: aqua;
+
+}
+
+#opgave2 .right .nearlyTop{
+    background-color: aquamarine;
+}
+
+#opgave2 .right .middel{
+    background-color: cadetblue;
+}
+
+#opgave2 .right .nearlyBottom{
+    background-color: lightslategray;
+}
+
+
+#opgave2 .right .bottom{
+    background-color: darkgray;
+}
+
+
+
+#opgave3{
+    grid-template-rows: 1fr 1fr;
+    
+}
+
+#opgave3 .top{
+    grid-template-rows: 1fr 1fr;
+
+}
+
+#opgave3 .top .top1{
+    background-color: violet;
+}
+
+#opgave3 .top .top2{
+    background-color: pink;
+}
+
+#opgave3 .bottom{
+    grid-template-columns: 1fr 1fr ;
+}
+
+#opgave3 .bottom .left {
+    background-color: yellowgreen;
+}
+
+
+
+
+#opgave3 .bottom .right{
+    grid-template-rows: 1fr 1fr 1fr ;
+}
+
+
+#opgave3 .bottom .right .top{
+    background-color: wheat;
+}
+
+
+#opgave3 .bottom .right .middel{
+    background-color:red;
+}
+
+
+#opgave3 .bottom .right .bottom{
+    background-color: blue;
+}
+
+
+
+#opgave4{
+    grid-template-rows: 1fr 1fr;
+}
+
+#opgave4 .top{
+    grid-template-columns: 1fr 1fr;
+}
+#opgave4 .top .top1{
+    background-color: aqua;
+}
+
+#opgave4 .top .top2{
+    background-color: aquamarine;
+}
+
+
+#opgave4 .bottom{
+    grid-template-columns: 1fr 1fr;
+}
+
+#opgave4 .bottom .bottom1{
+    background-color: red;
+}
+
+
+#opgave4 .bottom .bottom2{
+    background-color: orange;
+}
+
+
+
+#opgave5{
+    grid-template-rows: 1fr 1fr;
+}
+
+#opgave5 .top{
+    background-color: aquamarine;
+}
+
+#opgave5 .bottom{
+    grid-template-columns: 1fr 1fr;
+}
+
+#opgave5 .bottom .bottom1{
+    background-color: cadetblue;
+}
+
+
+#opgave5 .bottom .bottom2{
+    background-color: lightblue;
+}

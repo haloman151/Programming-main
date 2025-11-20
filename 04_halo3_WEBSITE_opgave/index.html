@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>template with P5.js</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/skeleton/2.0.4/skeleton.min.css"
+        integrity="sha512-EZLkOqwILORob+p0BXZc+Vm3RgJBOe1Iq/0fiI7r/wJgzOFZMlsqTa29UEl6v6U6gsV4uIpsNZoV32YZqrCRCQ=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="./index.css">
+    <script src="https://cdn.jsdelivr.net/npm/p5@1.11.10/lib/p5.min.js"></script>
+</head>
+
+<body>
+    <div class="menu-wrapper">
+        <div class="burger-icon">≡</div>
+        <div class="sidebar">
+
+        </div>
+    </div>
+    <main>
+        <div class="page" id="page1" title=">
+            <div class="scroll">
+
+
+                
+
+        <div class="page" id="page2" title="Halo3 parallax">
+            <div class="background1 parallax">
+
+
+            </div>
+            <div class="background2 parallax">
+
+
+            </div>
+
+            <div class="background3 parallax">
+
+            </div>
+        </div>
+
+
+        <div class="page" id="page3" title="Campaign">
+            <div class="left">
+                <h1>Campaign</h1>
+                <video id="theVideo" src="./assets/halo3_campaign.mp4" autoplay muted loop ></video>
+                <button id="videoButton">Pause</button>
+            </div>
+                <div class="right">
+
+                    <div class="top">
+                    
+                    </div>
+                    <div class="bottom">
+                        <div class="box">
+                            <div class="top"> ["quick rundown om Halo3's story"]
+
+                            </div>
+                            <div class="bottom">
+                                <h3> Master Chief forsøger at stoppe "The Covenant" i at aktivere Halo-ringene. Master Chief og hans nye ven "The Arbiter" jagter fjenden til The Ark.  </h3>
+                            </div>
+                        </div>
+                        <h1></h1>
+                    </div>
+                </div>
+        </div>
+
+        <div class="page" id="page4" title="Multiplayer">
+            <div class="left">
+                <div class="top">
+                    <h1>Multiplayer</h1>
+                </div>
+                <div class="bottom">
+                    <video id="theVideo" src="./assets/halo3_multiplayer.mp4" autoplay muted loop ></video>
+                <button id="videoButton">Pause</button>
+                
+                </div>
+            </div>
+            <div class="right">
+                <div class="top">
+                    <h1></h1>
+                </div>
+                <div class="bottom">
+                    <div class="box">
+                        <div class="top">
+                            <h1></h1>
+                        </div>
+                        <div class="bottom">
+                            <h1>Halo 3's multiplayer er kendt for sin balancerede gameplay, våbenroller og stærk konkurrence. Spillet har både ranked og social matchmaking med gamemodes som Team Slayer, Multi Team(som bliver vist på videoen), Capture the Flag, Oddball og King of the Hill.</h1>
+                        </div>
+                    </div>
+                    <h1></h1>
+                </div>
+            </div>
+        </div>
+        <div class="page" id="page5" title="Forge">
+            <div class="left">
+                <div class="top">
+                    <h1>Forge</h1>
+                </div>
+            <div class="bottom">
+                    <video id="theVideo" src="./assets/halo3_forge.mp4" autoplay muted loop ></video>
+                <button id="videoButton">Pause</button>
+                <h1></h1>
+            </div>
+            </div>
+            <div class="right">
+                <div class="top">
+                    <h1></h1>
+                </div>
+                <div class="bottom">
+                    <div class="box">
+                        <div class="top">
+
+                        </div>
+                        <div class="bottom">
+                            <h1>Forge handler mest om tilpasning og kreativitet men ikke fuld map-skabelse, men ændring af eksisterende maps. Spillere brugte det til alt fra kompetitive layout ændringer til sjove minigames som Grifball, Jenga, Parkour(som bliver vist i videoen) Duck Hunt og racetracks.</h1>
+                        </div>
+                    </div>
+                    <h1></h1>
+                </div>
+            </div>
+
+        </div>
+        <div class="page" id="page6" title="Forge maps">
+           <select id="imageDropdown">
+  <option value="./assets/forge_01.png">Laserman</option>
+  <option value="./assets/forge_02.png">Jenga</option>
+  <option value="./assets/forge_04.png">Dragon</option>
+</select>
+
+<br><br>
+
+<img id="displayImage" src="./assets/forge_01.png" width="1200" height="900">
+        </div>
+    </main>
+    <script src="./index.js"></script>
+</body>
+
+</html>
