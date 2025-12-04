@@ -9,7 +9,8 @@
         integrity="sha512-EZLkOqwILORob+p0BXZc+Vm3RgJBOe1Iq/0fiI7r/wJgzOFZMlsqTa29UEl6v6U6gsV4uIpsNZoV32YZqrCRCQ=="
         crossorigin="anonymous" referrerpolicy="no-referrer" />
     <link rel="stylesheet" href="./index.css">
-    <script src="https://cdn.jsdelivr.net/npm/p5@1.11.10/lib/p5.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/p5@1.11.11/lib/p5.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/p5@1.11.11/lib/addons/p5.sound.min.js"></script>
 </head>
 
 <body>
@@ -20,10 +21,20 @@
         </div>
     </div>
     <main>
-        <div class="page" id="page1">
+        <div class="page" id="page1" title="webcam">
             <h1>feed from webcam</h1>
         </div>
-
+        <div class="page" id="page2" title="Play sound">
+            <img id="otter" src="./assets/otter.jpg" alt="otter">
+        </div>
+        <div class="page" id="page3" title="Record sound">
+            <button id="recBtn">Start Recording</button>
+        </div>
+        
+        <div class="page" id="page4" title="Speech synthesis">
+            <input type="text" id="speakMe">
+            <button id="speakBtn">Tal for fanden</button>
+        </div>
 
               
 
