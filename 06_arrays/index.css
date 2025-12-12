@@ -128,4 +128,10 @@ h1 {
     border: 1px solid lightblue;
     display: grid;
     place-items: center;
+    transition: .8s ease-in-out all;
+}
+
+.elev:hover{
+    transform: scale(0.8);
+    box-shadow: 10px 10px black;
 }
