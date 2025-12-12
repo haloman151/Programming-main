@@ -1,11 +1,9 @@
-var currentPage ='#page4'
-var capture
-var otterSound, rainSound, fireGif
-var recBtn, recorder, audioFile
-var isRecording = false
-var speakInp, speakBtn
+var currentPage ='#page2'
+var listeInput, listeHeader, listeButton, listeContainer
+
+
 function preload(){
-    otterSound = loadSound('./assets/otter_sound.mp3')
+    
 }
 
 
@@ -17,73 +15,49 @@ function setup(){
     //skift til current page
     shiftPage(currentPage)
 
-    capture = createCapture(VIDEO, {flipped:true})
-    capture.size(720,468)
-    select('#page1').child(capture)
-   
-    //sounds
-    select('#otter').mousePressed(()=>{
-        //Gif
-        fireGif = createImg('./assets/fire.gif')
-        select('#page2').child(fireGif)
+    var klassen2T = ["Balder", "Asta", "Viggo", "Bertam", "Tobias", "Selma", "Toke", "Victor"]
 
-        var pos = select('#otter').position()
-        console.log(pos)
+    //Hvor mange elementer?
+    console.log(klassen2T.length, "elementer i listen")
+    //sådan bruger vi et element
+    console.log(klassen2T[0], 'er den første i listen')
+    //sådam lægger vi nye elementer til
+    klassen2T.push("Molle")
+    klassen2T.push("Nikolaj")
+    klassen2T.push("Mads")
+    klassen2T.push("Lisbet")
+    klassen2T.push("Asbjørn")
+    klassen2T.push("Julemanden")
+    klassen2T.push("Gilbert")
+    klassen2T.push("Ludvig")
+    klassen2T.push("Silas")
+    klassen2T.push("Milas")
+    klassen2T.push("John")
+    klassen2T.push("Sebastian")
+    klassen2T.push("Flóki")
+    klassen2T.push("Amadeus")
 
-        fireGif.position(pos.x, pos.y)
-        //skjul odderem så den kan brænde og dø
-        select('#otter').hide()
-        otterSound.play()
+    console.log(klassen2T)
 
-   } )
-    //rain sound play
-    rainSound = createAudio('./assets/rain.mp3')
-    rainSound.showControls()
-    select('#page2').child(rainSound)
+    // Sådan looper vi i igennem et array:
+    klassen2T.map((e)=>{
+        console.log('Denne person i klassen hedder ' + e)
+       
 
-    //lydoptagelse
-    //start browserens mikrofon
-    var mic = new p5.AudioIn()
-    mic.start()
-   //opret en ny fil til at gemme lyd i
-   audioFile = new p5.SoundFile()
-
-   recorder = new p5.SoundRecorder()
-   recorder.setInput(mic)
-
-   // dom binding til knappen
-   recBtn = select('#recBtn')
-   //start/stop optagelse
-   recBtn.mousePressed(()=> {
-        if(!isRecording){
-            recorder.record(audioFile)
-            isRecording = true
-            recBtn.html('STOP recording')
-        }else{
-            recorder.stop()
-            isRecording = false
-            recBtn.html("Start recording")
-            setTimeout(()=>{
-                audioFile.play()
-                save(audioFile, "myVoice.wav")
-
-            }, 500)
-
-        }
-   })
+    })
 
 
-   //speech synth
-   speakInp = select('#speakMe')
-   speakBtn = select('#speakBtn')
-   // når man trykker på Btn læses inholdet i input up
-   speakBtn.mousePressed(()=>{
-    const utterance = new SpeechSynthesisUtterance(speakInp.value())
-    utterance.lang = "ur-PK"
-    utterance.rate = 1.4
-    utterance.pitch = 1.4
-    speechSynthesis.speak(utterance)
-   })
+
+
+    //page2 . basics
+    //DOM BINDING
+    listeButton = select('#listeButton')
+    listeHeader = select('#listeHeader')
+    listeInput = select('#listeInput')
+    listeContainer = select('#listeContainer')
+    //der et input felt en container og en knap til at tiføje nye elementer på siden
+    createElever(klassen2T, listeContainer)
+
 
 
     //Sæt menu op
@@ -111,8 +85,15 @@ function shiftPage(newPage){
     select(newPage).addClass('show')
     currentPage = newPage
 }
+//tager to argumenter - hvilken liste den skal gøre noget med og hvor den skal gøre af resultatet
+function createElever(list, div){
+    list.map( e => {
+        var div = createDiv(e)
+        div.addClass('elev')
+        listeContainer.child(div)        
+    })
 
-
+}
 
 
 

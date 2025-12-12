@@ -107,9 +107,22 @@ h1 {
 
 }
 
-#page2 img{
-    width:20vw;
-    height: 20vw;
-    border-radius: 50%;
 
+#page2{
+    grid-template-rows: 1fr 1fr 8fr;
+}
+
+#listeContainer{
+    width: 60vw;
+    height: 40vh;
+    border: 1px solid lightblue;
+    overflow: scroll;
+}
+
+.elev{
+    width: 300px;
+    height: 300px;
+    border: 1px solid lightblue;
+    display: grid;
+    place-items: center;
 }
