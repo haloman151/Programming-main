@@ -119,6 +119,7 @@ h1 {
     overflow: scroll;
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    scroll-behavior: smooth;
 }
 
 .elev{
@@ -134,4 +135,6 @@ h1 {
 .elev:hover{
     transform: scale(0.8);
     box-shadow: 10px 10px black;
+    border-radius: 50%;
+    font-size: 3rem;
 }

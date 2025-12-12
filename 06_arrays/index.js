@@ -58,7 +58,18 @@ function setup(){
     //der et input felt en container og en knap til at tiføje nye elementer på siden
     createElever(klassen2T, listeContainer)
 
-
+    // sørge for at indsætte Astrid når der trykkes på knappen
+    listeButton.mousePressed( ()=> {
+        if(listeInput.value() != ''){
+            confirm('Du er blevet til ingentin g')
+        }else{
+            klassen2T.push(listeInput.value())
+            createElever(klassen2T, listeContainer)
+            listeContainer.elt.scrollTop = listeContainer.elt.scrollHeight
+        }
+        listeInput.value('')
+        
+    })
 
     //Sæt menu op
     // hent alle sider som et array
@@ -87,6 +98,8 @@ function shiftPage(newPage){
 }
 //tager to argumenter - hvilken liste den skal gøre noget med og hvor den skal gøre af resultatet
 function createElever(list, dest){
+    //først søger vi for at der er tomt i contaieren
+    dest.html('')
     list.map( e => {
         var div = createDiv(e)
         div.addClass('elev')
