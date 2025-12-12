@@ -117,10 +117,13 @@ h1 {
     height: 40vh;
     border: 1px solid lightblue;
     overflow: scroll;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
 }
 
 .elev{
     width: 300px;
+    min-height: 300px;
     height: 300px;
     border: 1px solid lightblue;
     display: grid;

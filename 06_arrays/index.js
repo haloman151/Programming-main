@@ -86,11 +86,11 @@ function shiftPage(newPage){
     currentPage = newPage
 }
 //tager to argumenter - hvilken liste den skal gøre noget med og hvor den skal gøre af resultatet
-function createElever(list, div){
+function createElever(list, dest){
     list.map( e => {
         var div = createDiv(e)
         div.addClass('elev')
-        listeContainer.child(div)        
+        dest.child(div)        
     })
 
 }
