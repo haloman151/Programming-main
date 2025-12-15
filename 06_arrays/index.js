@@ -1,6 +1,6 @@
-var currentPage ='#page2'
+var currentPage ='#page3'
 var listeInput, listeHeader, listeButton, listeContainer
-
+var removeListe 
 
 function preload(){
     
@@ -56,11 +56,24 @@ function setup(){
     listeInput = select('#listeInput')
     listeContainer = select('#listeContainer')
     //der et input felt en container og en knap til at tiføje nye elementer på siden
-    createElever(klassen2T, listeContainer)
+    createList(klassen2T, listeContainer, 'elev')
+
+
+
+
+
+
+    //page 3
+    //DOM binding
+    removeListe = select('#removeListe')
+    //make a list 
+    var elements = ["hest", "dog", "hamster", "php", "cangaroo", "fuck", "subway sandwich", "group rat", "bird"]
+    // call the geneic function that makes new html elements
+    createList(elements, removeListe, 'RapeVictim')
 
     // sørge for at indsætte Astrid når der trykkes på knappen
     listeButton.mousePressed( ()=> {
-        if(listeInput.value() != ''){
+        if(listeInput.value() != 'Sebastian'){
             confirm('Du er blevet til ingentin g')
         }else{
             klassen2T.push(listeInput.value())
@@ -97,12 +110,12 @@ function shiftPage(newPage){
     currentPage = newPage
 }
 //tager to argumenter - hvilken liste den skal gøre noget med og hvor den skal gøre af resultatet
-function createElever(list, dest){
+function createList(list, dest, className){
     //først søger vi for at der er tomt i contaieren
     dest.html('')
     list.map( e => {
         var div = createDiv(e)
-        div.addClass('elev')
+        div.addClass(className)
         dest.child(div)        
     })
 
