@@ -61,6 +61,18 @@ function setup(){
 
 
 
+    // sørge for at indsætte Astrid når der trykkes på knappen
+    listeButton.mousePressed( ()=> {
+        if(listeInput.value() != 'Sebastian'){
+            confirm('Du er blevet til ingentin g')
+        }else{
+            klassen2T.push(listeInput.value())
+            createList(klassen2T, listeContainer)
+            listeContainer.elt.scrollTop = listeContainer.elt.scrollHeight
+        }
+        listeInput.value('')
+        
+    })
 
 
     //page 3
@@ -69,20 +81,14 @@ function setup(){
     //make a list 
     var elements = ["hest", "dog", "hamster", "php", "cangaroo", "fuck", "subway sandwich", "group rat", "bird"]
     // call the geneic function that makes new html elements
-    createList(elements, removeListe, 'RapeVictim')
+    createList(elements, removeListe, 'rapeVictim', rape)
 
-    // sørge for at indsætte Astrid når der trykkes på knappen
-    listeButton.mousePressed( ()=> {
-        if(listeInput.value() != 'Sebastian'){
-            confirm('Du er blevet til ingentin g')
-        }else{
-            klassen2T.push(listeInput.value())
-            createElever(klassen2T, listeContainer)
-            listeContainer.elt.scrollTop = listeContainer.elt.scrollHeight
-        }
-        listeInput.value('')
-        
-    })
+
+
+
+
+
+
 
     //Sæt menu op
     // hent alle sider som et array
@@ -110,16 +116,28 @@ function shiftPage(newPage){
     currentPage = newPage
 }
 //tager to argumenter - hvilken liste den skal gøre noget med og hvor den skal gøre af resultatet
-function createList(list, dest, className){
+function createList(list, dest, className, action){
     //først søger vi for at der er tomt i contaieren
     dest.html('')
     list.map( e => {
         var div = createDiv(e)
         div.addClass(className)
-        dest.child(div)        
+        //hvis der er en action i argrumenterne så gør noget
+        if(action){
+            div.mousePressed(()=>{
+                action(div)
+            })
+        }
+        dest.child(div)   
+             
     })
 
 }
 
 
 
+function rape(who){
+    console.log('sebastian.... it is joeover', who)
+    who.style('background-image', `url('.assets/consent.jpg')`)
+
+}
