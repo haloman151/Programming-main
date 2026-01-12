@@ -1,6 +1,39 @@
-var currentPage ='#page3'
+var currentPage ='#page4'
 var listeInput, listeHeader, listeButton, listeContainer
 var removeListe 
+
+
+const fugle = [
+  "solsort","musvit","blåmejse","skovspurv","gråspurv","bogfinke","grønirisk",
+  "stillits","dompap","gærdesmutte","rødhals","sjagger","ringdue","bydue",
+  "hættemåge","sildemåge","svartbag","stormmåge","gråkrage","råge","allike",
+  "skade","husskade","nøddekrige","hærfugl","isfugl","svalehale","landsvale",
+  "bysvale","digesvale","tornsanger","munk","gransanger","løvsanger",
+  "rørsanger","sivsanger","havesanger","gulspurv","rørspurv","snespurv",
+  "korttået lærke","sanglærke","toplærke","bomlærke","piber","engpiber",
+  "skovpiber","bjergpiber","hvid vipstjert","gul vipstjert","citronvipstjert",
+  "vintergærdesmutte","sortstrubet bynkefugl","stenskvæt","buskskvæt",
+  "sortstrubet bynkefugl","nattergal","blåhals","rødstjert","husrødstjert",
+  "broget fluesnapper","grå fluesnapper","lille fluesnapper",
+  "sortmejse","topmejse","sortstrubet mejse","fyrremejse","sumpmejse",
+  "skægmejse","halemejse","pirol","silkehale","tornirisk","bjergirisk",
+  "lille korsnæb","stor korsnæb","hvidvinget korsnæb","kernebider",
+  "spurvehøg","duehøg","musvåge","fjeldvåge","hvepsevåge","rørhøg",
+  "blå kærhøg","rød glente","sort glente","havørn","kongeørn",
+  "tårnfalk","lærkefalk","jagtfalk","vandrefalk","slørugle",
+  "natugle","skovhornugle","hornugle","kirkeugle","spurveugle",
+  "perleugle","hjejle","stor regnspove","lille regnspove","brushane",
+  "rødben","sortklire","grønbenet rørhøne","hvidklire","mudderklire",
+  "dobbeltbekkasin","enkeltbekkasin","tinksmed","klyde","præstekrave",
+  "stor præstekrave","hjejle","strandskade","tejst","alk","lomvie",
+  "søkonge","lunde","skarv","topskarv","silkehejre","fiskehejre",
+  "rørdrum","sort stork","hvid stork","trane","blishøne","vandrikse",
+  "rørhøne","knopsvane","sangsvane","pibesvane","gråand","krikand",
+  "skeand","spidsand","atlingand","hvinand","troldand","toppet skallesluger",
+  "lille skallesluger","stor skallesluger","ederfugl","havlit",
+  "sortand","fløjlsand","bjergand","kongeederfugl","rødhalset lom",
+  "sortstrubet lom","hvidnæbbet lom"
+]
 
 function preload(){
     
@@ -81,11 +114,30 @@ function setup(){
     //make a list 
     var elements = ["hest", "dog", "hamster", "php", "cangaroo", "fuck", "subway sandwich", "group rat", "bird"]
     // call the geneic function that makes new html elements
-    createList(elements, removeListe, 'rapeVictim', rape)
+    createList(elements, removeListe, 'removeVictim', removeListItem)
 
 
-
-
+    //page 4 - filter stuff(birds)
+    //DOM binding
+    var birdContainer = select('#birdContainer')
+    var birdInp = select('#birdInp')
+    createList(fugle, birdContainer, 'bird')
+    birdInp.input(()=>{
+        //console.log(birdInp.value)
+        var filterBirds = fugle.filter( f => {
+            return f.includes(birdInp.value()) 
+            //er der inde i f (en eller anden fugl), det der er i input feltet "god help us all"
+        } )
+        //nu er det nye array filterBirds fyldt med fugle der indholder bogstaver fra input feltet 
+        if(filterBirds.length > 0){
+            
+            createList(filterBirds, birdContainer, 'bird')
+        }else{
+            var feedback = createList('h2', "bird not found")
+            birdContainer.html("")
+            birdContainer.child(feedback)
+        }
+    })
 
 
 
@@ -119,13 +171,13 @@ function shiftPage(newPage){
 function createList(list, dest, className, action){
     //først søger vi for at der er tomt i contaieren
     dest.html('')
-    list.map( e => {
+    list.map( (e, index) => {
         var div = createDiv(e)
         div.addClass(className)
         //hvis der er en action i argrumenterne så gør noget
         if(action){
             div.mousePressed(()=>{
-                action(div)
+                action(div, index, list)
             })
         }
         dest.child(div)   
@@ -136,8 +188,12 @@ function createList(list, dest, className, action){
 
 
 
-function rape(who){
+function removeListItem(who, index, list){
     console.log('sebastian.... it is joeover', who)
-    who.style('background-image', `url('.assets/consent.jpg')`)
+    who.style('background-image', `url('./assets/consent.png')`)
+    setTimeout(()=> {
+        list.splice(index,1)
+        createList(list, removeListe, 'removeVictim', removeListItem)
+    }, 800)
 
 }

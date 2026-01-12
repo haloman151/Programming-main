@@ -40,9 +40,35 @@
 
               
      <div class="page" id="page3" title="remove items">
+         <pre>
+         <code>
+             <h2>man fjerner elementer i et array med funktion splice()</h2>
+             <p>for eksempel dette array: var liste = ["john", "paul", "ringo", "george"]</p>
+             liste.splice(0.1)
+             og nu er listen:
+         </code>
         <div class="container" id="removeListe">
 
+            </pre>
         </div>
+
+        <div class="page" id="page4" title="Array filter">
+            <pre>
+                <code>
+                    Man kan filterer et array med funktion filter()
+                    var names = ["simon", "Silas", "Sune", "seimi", "Selma", "Sebastian"] 
+                    var namesWithA = names.filter( n => {
+                        return n.includes('a')
+                    } )
+                    console.log(nameWithA) // ["Silas", "Selma", "Sebastian"]
+                </code>
+            </pre>
+            <input type="text" id="birdInp">
+            <div id="birdContainer">
+
+            </div>
+        </div>
+
      </div>
     </main>
     <script src="./index.js"></script>
