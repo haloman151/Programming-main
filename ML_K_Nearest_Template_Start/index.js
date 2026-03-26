@@ -23,9 +23,9 @@ var colY = 'Semi-major axis (AU)'      // Y-aksen: Variabel 2 (input)
 var colLabel = 'Period (days)' // Facit: Hvilken gruppe hører man til?
 
 // GUI Overskrifter (Gør det pænt for brugeren)
-var mainTitle = "Burnout Risk Predictor"
+var mainTitle = "Exo planet day predictor"
 var sectionTitle1 = "1. Indtast dine tal"
-var instructionText = "Angiv antal pauser og søvntimer:"
+var instructionText = "Angiv Mass og Semi-major axis:"
 var sectionTitle2 = "2. Se Resultat i Grafen"
 
 // Farver til vores grupper (Labels) - Chart.js bruger disse
@@ -212,7 +212,7 @@ function classifyUnknown(){
     var guessDataset = myChart.data.datasets[myChart.data.datasets.length -1]
     guessDataset.data = [{x: inputX, y: inputY}]
     myChart.update()
-    //løb data igennem - atlså alle data punkterne - og find hver og ens afstand til vores gæt
+    //løb data igennem - altså alle data punkterne - og find hver og ens afstand til vores gæt
     data.map( p => {
         //dist ligger i p5.js og den laver pythagoras for os 
         p.distance = dist(inputX, inputY, p.x,p.y)
