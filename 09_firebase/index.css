@@ -22,3 +22,44 @@ body,
     left: 0;
 }
 
+#newQuote{
+    width: 600px;
+    height: 80px;
+    font-size: 1.5rem;
+    padding: 2rem;
+}
+
+#quotes{
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap:1rem;
+    padding:2rem 10vw;
+    max-height: 50vh;
+    overflow: scroll;
+}
+
+.quote-box {
+    border: 2px solid #ccc;
+    border-radius: 8px;
+    padding: 1rem;
+    background-color: #f9f9f9;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+    position: relative;
+}
+
+.delete{
+    position:absolute;
+    top: 1rem;
+    right: 1rem;
+}
+.delete:hover{
+    color: red;
+    cursor: pointer;
+}
+.date{
+    margin-top: 0.5rem;
+    font-size: 0.9rem;
+    color: #666;
+    font-weight: bold;
+    
+}
