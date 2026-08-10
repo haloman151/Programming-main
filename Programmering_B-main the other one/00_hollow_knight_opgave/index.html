@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>template with P5.js</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/skeleton/2.0.4/skeleton.min.css"
+        integrity="sha512-EZLkOqwILORob+p0BXZc+Vm3RgJBOe1Iq/0fiI7r/wJgzOFZMlsqTa29UEl6v6U6gsV4uIpsNZoV32YZqrCRCQ=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="./index.css">
+    <script src="https://cdn.jsdelivr.net/npm/p5@1.11.10/lib/p5.min.js"></script>
+</head>
+
+<body>
+    <div class="menu-wrapper">
+        <div class="burger-icon">≡</div>
+        <div class="sidebar">
+
+        </div>
+    </div>
+    <main>
+
+        <div class="page" id="page1" title="Hollow Knight">
+
+        </div>
+
+        <div class="page" id="page2" title="Karakterer (Meget indsnævret)">
+            <div class="background1 parallax">
+                <h1>The Knight</h1>
+            </div>
+            <div class="background2 parallax">
+                <h1>Hornet</h1>
+            </div>
+            <div class="background3 parallax">
+                <h1>Cornifer</h1>
+            </div>
+            <div class="background4 parallax">
+                <h1>Zote</h1>
+            </div>
+            <div class="background5 parallax">
+                <h1>The last stag</h1>
+            </div>
+            <div class="background6 parallax">
+                <h1></h1>
+            </div>
+        </div>
+
+
+        <div class="page" id="page3" title="Områder (Også indsnævret)">
+        <label for="baggrundsvaelger">Udforsk de forskellige steder af Hollow Knight</label>
+        <select id="baggrundsvaelger">
+            <option value="Dirtmouth">Dirtmouth</option>
+            <option value="Greenpath">Greenpath</option>
+            <option value="Cityoftears">City Of tears</option>
+            <option value="Crystalpeak">Crystal Peak</option>
+            <option value="Hive">The Hive</option>
+            <option value="Abyss">The Abyss</option>
+        </select>
+    </div>
+
+
+
+        <div class="page" id="page4" title="Historien (Meget simplificeret)">
+                <div class="scroll">
+                <div class="box">
+                    <div class="top">1. The kingdom of Hallownest</div>
+                    <div class="bottom">Hallownest var engang et rigt og blomstrende insektkongerige under ledelse af en konge og hans dronning. Byer, huler og paladser var fyldt med liv, handel og kultur. Men under overfladen skjulte sig mørke kræfter, og kongeriget begyndte langsomt at falde fra hinanden.</div>
+                </div>
+                <div class="box">
+                    <div class="top">2. The Infection</div>
+                    <div class="bottom">En mystisk infektion begyndte at sprede sig gennem Hallownest. Den overtog sind og kroppe, gjorde indbyggere aggressive og korrumperede deres hjerner. Selv kongens råd og hær kunne ikke stoppe smitten, som spredte kaos og ødelæggelse gennem hele riget.</div>
+                </div>
+                <div class="box">
+                    <div class="top">3. The empty Knight</div>
+                    <div class="bottom">Hovedpersonen, kendt som den Tomme Ridder, vågner i Hallownest uden erindring om sin fortid. Ridderen udforsker de tomme byer og farefulde grotter, kæmper mod inficerede væsner og lærer gradvist om kongerigets historie og den trussel, infektionen udgør.</div>
+                </div>
+                <div class="box">
+                    <div class="top">4. The truth and the sacrifice</div>
+                    <div class="bottom">Ridderen opdager, at infektionen stammer fra Radiance, en gammel gud, som søger kontrol over Hallownest. For at redde riget må ridderen vælge mellem at forsegle Radiance, ofre sig selv eller besejre gudinden direkte. Resultatet bestemmer Hallownests skæbne.</div>
+                </div>
+            </div>
+        </div>
+
+
+        <div class="page" id="page5" title="Introen til spillet (Tryk på afspillningsknappen 2 gange)">
+                    <div class="background">
+                    <h1 id="overlay"></h1>
+                    <video id="theVideo" src="./assets/Hollow Knight Intro - Opening Cinematic - Glasses (1080p, h264).mp4"></video>
+                    <button id="videoButton">Start/Pause</button>
+                </div>
+        </div>
+
+    </main>
+    <script src="./index.js"></script>
+</body>
+
+</html>

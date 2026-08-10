@@ -1,0 +1,367 @@
+body {
+    overflow: hidden;
+    background: #111;
+    color: white;
+}
+
+/* Sider — skjult til venstre, vist med .show */
+.page {
+    width: 100vw;
+    height: 100vh;
+    position: fixed;
+    top: 0;
+    left: -100vw;
+    transition: left 0.5s ease-in-out;
+    background-size: cover;
+    background-position: center;
+}
+.page.show { left: 0; }
+
+/* Overlay — centreret indhold oven på baggrund */
+.overlay {
+    display: grid;
+    place-items: center;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.6);
+    text-align: center;
+}
+
+/* Hint — centreret tekst i toppen af et rum */
+.hint {
+    position: absolute;
+    bottom: 1.5rem;
+    left: 1.5rem;
+    background: rgba(0, 0, 0, 0.6);
+    padding: 0.5rem 1.5rem;
+    border-radius: 0.5rem;
+    z-index: 10;
+}
+
+/* Hotspot — klikbart element placeret i et rum */
+.hotspot {
+    position: absolute;
+    font-size: 2rem;
+    cursor: pointer;
+    z-index: 5;
+}
+
+.hotspot:hover { transform: scale(1.3); }
+
+#btn-start {
+    top: 60%;
+    color: #fff;
+    font-size: 1.8rem;
+    border: none;
+    border-radius: 50px;
+    cursor: pointer;
+    box-shadow: 
+    0 8px 20px rgba(0, 0, 0, 0.5),
+        inset 0 1px 0 rgba(255, 255, 255, 0.3);
+    transition: all 0.25s ease;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+}
+
+#btn-start:hover {
+    transform: translateY(-2px);
+}
+
+.nav-btn {
+    font-size: 1.3rem;
+    font-weight: 600;
+    background: linear-gradient(135deg, #02f252 0%, #764ba2 100%);
+    color: white;
+    border-radius: 0.6rem;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.3);
+}
+
+.nav-btn:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 8px 25px rgba(0, 107, 21, 0.4);
+}
+
+/* Character fade-in animation */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
+
+.character-fade {
+    position: absolute;
+    top: 50%;
+    left: 20%;
+    transform: translate(-50%, -50%);
+    opacity: 0;
+}
+
+.character-fade.fade-in {
+    animation: fadeIn 3s ease-in-out forwards;
+}
+
+.character-fade img {
+    width: auto;
+    height: auto;
+}
+
+/* Code-input — skjult, vises med .show */
+.code-input {
+    position: absolute;
+    inset: 0;
+    display: none;
+    place-items: center;
+    background: rgba(0, 0, 0, 0.75);
+    z-index: 20;
+}
+.code-input.show { display: grid; }
+
+
+/* Timer */
+#timer {
+    position: fixed;
+    top: 1rem;
+    right: 1.5rem;
+    font-size: 1.8rem;
+    font-weight: 700;
+    background: rgba(0, 0, 0, 0.6);
+    padding: 0.4rem 1rem;
+    border-radius: 0.5rem;
+    z-index: 100;
+}
+
+/* High score liste */
+#highscores {
+    max-height: 200px;
+    overflow-y: auto;
+    padding: 0 1rem;
+}
+
+#score-list { list-style: none; }
+#score-list li {
+    display: flex;
+    justify-content: space-between;
+    padding: 0.3rem 0;
+    border-bottom: 1px solid rgba(255,255,255,0.15);
+}
+
+#room5 { background-size: contain; background-repeat: no-repeat; }
+
+
+/* ---- Rum-baggrunde ---- */
+#start    { background-image: url('./assets/PvzIntro.jpg'); }
+#room1    { background-image: url('./assets/Prisoncell 1.jpg'); }
+#room2    { background-image: url('./assets/Prisoncelldoor 1.png'); }
+#room3    { background-image: url('./assets/labs.png'); }
+#room4    { background-image: url('./assets/keyboard1.png'); }
+#room5    { background-image: url('./assets/Hallway.png'); }
+#room6    { background-image: url('./assets/keypad_door.png'); }
+#room7    { background-image: url('./assets/dave_hallway.png'); }
+#complete { background-image: url('./assets/Escaped.png'); }
+
+/* ---- Hotspot-placeringer ---- */
+#room1 #symbol1 { top: 35%; left: 20%; }
+#room1 #symbol2 { top: 60%; left: 65%; }
+#room1 #symbol3 { top: 45%; left: 45%; }
+#room1 #symbol4 { top: 25%; left: 60%; }
+#room1 #symbol5 { top: 70%; left: 30%; }
+#room1 #symbol6 { top: 50%; left: 70%; }
+#room1 #symbol7 { top: 30%; left: 40%; }
+#room1 #symbol8 { top: 65%; left: 50%; }
+#room1 #symbol9 { top: 40%; left: 20%; }
+#room1 #symbol10 { top: 55%; left: 80%; }
+#room1 #symbol11 { top: 20%; left: 50%; }
+#room1 #symbol12 { top: 75%; left: 40%; }
+
+
+#room2 #symbol1 { top: 50%; left: 21%; font-size: 10rem; }
+
+#room4 #node1 { top: 50%; left: 20%; font-size: 5rem; }
+#room4 #node2 { top: 50%; left: 40%; font-size: 5rem; }
+#room4 #node3 { top: 50%; left: 60%; font-size: 5rem; }
+#room4 #node4 { top: 50%; left: 80%; font-size: 5rem; }
+
+
+button{
+    position:absolute;
+}
+
+/* ---- button-placeringer ---- */
+#room3-btn1 { top: 65%; left: 33%; }
+#room3-btn2 { top: 65%; left: 66%; }
+#room3-btn3 { top: 65%; left: 99%; }
+
+#room4-btn1 { top: 75%; left: 45%; }
+
+#room5-btn1 { top: 50%; left: 25%; }
+#room5-btn2 { top: 50%; left: 65%; }
+
+
+#room4-btn1 {
+    font-size: 1.3rem;
+    font-weight: 600;
+    background: linear-gradient(135deg, #02f252 0%, #764ba2 100%);
+    color: white;
+    border-radius: 0.6rem;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.3);
+}
+
+#room4-btn1:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 8px 25px rgba(0, 107, 21, 0.4);
+}
+
+
+/* ---- RUM 3: Billedgalleri ---- */
+#Zomboss-Sound {
+    top: 12%;
+    left: 50%;
+    transform: translateX(-50%);
+    font-size: 1.2rem;
+    padding: 0.6rem 1.8rem;
+    border-radius: 0.5rem;
+    border: none;
+    cursor: pointer;
+    z-index: 10;
+}
+
+#room3-gallery {
+    display: flex;
+    gap: 2rem;
+    justify-content: center;
+    align-items: stretch;
+    background: rgba(0, 0, 0, 0.75);
+    border-radius: 1rem;
+    padding: 2.5rem;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -45%);
+}
+
+.picture-box {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1rem;
+    background: rgba(255, 255, 255, 0.08);
+    border: 2px solid rgba(255, 255, 255, 0.2);
+    border-radius: 0.75rem;
+    padding: 1.5rem;
+    transition: border-color 0.2s, background 0.2s;
+}
+
+.picture-box:hover {
+    border-color: rgba(255, 255, 255, 0.6);
+    background: rgba(255, 255, 255, 0.15);
+}
+
+.picture-box img {
+    width: 200px;
+    height: 200px;
+    object-fit: contain;
+    border-radius: 0.5rem;
+    display: block;
+}
+
+.picture-box .room3-choice {
+    position: static;
+    cursor: pointer;
+    color: white;
+    border: none;
+    border-radius: 0.5rem;
+    padding: 0.5rem 1.5rem;
+    font-size: 1rem;
+    width: 100%;
+}
+
+#Zomboss-Sound{
+    position: absolute;
+    bottom: 1.5rem;
+    left: 50%;
+    transform: translateX(-50%);
+    background: white;
+    padding: 0.5rem 1.5rem;
+    border-radius: 0.5rem;
+    z-index: 10;
+}
+
+#room6{
+    display: grid;
+    place-items: center;
+}
+#keypad{
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-template-rows: 1fr 1fr 1fr 1fr;
+    gap: 1rem;
+    
+    
+    background: rgba(0, 0, 0, 0.75);
+    border: 2px solid rgba(255, 255, 255, 0.2);
+    border-radius: 0.75rem;
+    padding: 1.5rem;
+    height: 700px;
+    width: 400px;
+}
+.keypad-btn {
+    font-size: 1.3rem;
+    font-weight: 600;
+    background: linear-gradient(135deg, #02f252 0%, #764ba2 100%);
+    color: white;
+    border-radius: 0.6rem;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.3);
+}
+#keypad-display{
+    background-color:red;
+    height:40px;
+    width:66%;
+    border-radius: 0.6rem;
+    
+}
+
+#codeCheck{
+    color:white;
+}
+
+@keyframes step-pulse {
+    0%, 100% { transform: scale(1); }
+    50% { transform: scale(1.2); }
+}
+
+#lose{
+    background-image: url('./assets/Deathscreen.png');
+
+}
+
+#complete h1 {
+    margin: 1rem;
+}
+
+#complete #btn-restart {
+    position: static;
+    font-size: 1.3rem;
+    font-weight: 600;
+    background: linear-gradient(135deg, #02f252 0%, #764ba2 100%);
+    color: white;
+    border: none;
+    border-radius: 0.6rem;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+}
+
+#complete #btn-restart:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 8px 25px rgba(0, 107, 21, 0.4);
+}

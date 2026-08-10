@@ -1,0 +1,285 @@
+	@import url('https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300..800;1,300..800&family=Roboto:ital,wght@0,100..900;1,100..900&display=swap');
+
+
+body{
+    background-color: blanchedalmond;
+    font-family: "Open Sans";
+    padding:0;
+    margin:0;
+    box-sizing: border-box;
+
+}
+
+.menu-wrapper{
+    position:fixed;
+    width:fit-content;
+    height: 100%;
+    left:0;
+    top:0;
+    z-index: 2;
+}
+
+
+.burger-icon{
+    position: fixed;
+    left:1rem;
+    top:1rem;
+    cursor: pointer;
+    font-size:2rem;
+    color:black;
+    z-index:3;
+   transition: color 0.5 ease-in-out;
+    
+}
+
+
+.menu-wrapper:has(.sidebar:hover) .burger-icon, .burger-icon:hover {
+color:white;
+}
+
+.sidebar{
+    position: relative;
+    left:-100%;
+    top:0;
+    width:100%;
+    height: 100%;
+    min-width: 15rem;
+    background-color: black;
+    color:aliceblue;
+    padding:4rem 1rem;
+    box-sizing: border-box;
+    transition: ease-in-out 0.3s;
+}
+
+.burger-icon:hover + .sidebar, .sidebar:hover{
+    left:0;
+    box-shadow: 0 0 10px black;
+}
+
+.sidebar a {
+    cursor: pointer;
+    font-size: 1.5rem;
+    display: block;
+    text-decoration: none;
+    color:white;
+    margin: 1rem 0;
+    opacity: 0.5;
+    transition: opacity 0.15s ease-in-out,
+        transform 0.15s ease-in-out;
+    
+}
+
+.sidebar a:hover{
+    opacity: 1;
+    transform: translateX(0.5rem);
+    filter: drop-shadow(0 0 10px white);
+    
+}
+
+.page{
+    width:100vw;
+    height:100vh;
+    overflow:hidden;
+    /* grid layout */
+    display:grid;
+    place-items: center;
+    /* position fixed - klasse "show" viser pages*/
+    position: fixed;
+    left:-100vw;
+    transition:  1s ease-in-out all;
+
+}
+
+
+.show{
+    left:0;
+
+}
+
+/* All div's inside of pages are treated as full width*/
+.page div {
+    width:100%;
+    height:100%;
+    display:grid;
+    place-items:center;
+    
+}
+
+
+
+h1{
+    font-weight: 300;
+    font-size:3rem;
+}
+
+#page2{
+    grid-template-rows:1fr 3fr ;
+}
+
+#page2 .top{
+    background-color: orange;
+    
+}
+#page2 .bottom{
+    
+    
+    background-image: url(./assets/city.jpg);
+    background-size: cover;
+
+}
+
+#page3{
+    grid-template-columns: 1fr 1fr;
+
+}
+
+#page3 .left{
+    background-color: chartreuse;
+    grid-template-rows: 1fr 3fr;
+
+}
+
+
+#page3 .left .bottom{
+    background-color: black;
+    color:turquoise;
+
+}
+
+#page3 .right{
+    background-color: aqua;
+    
+}
+
+#page3 .right .box{
+   background-color: lemonchiffon;
+   display: grid;
+   grid-template-rows: 1fr 6fr;
+    height:50%;
+    width:80%;
+
+}
+
+#page3 .right .box .bottom{
+    background-image: url(./assets/Seashell.jpg);
+    background-size: cover;
+}
+
+#page4{
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+
+}
+
+#grid1{
+    background-color: beige;
+}
+
+#grid2{
+    background-color: wheat;
+}
+
+#grid3{
+    background-color: burlywood;
+}
+
+#grid4{
+    background-color: bisque;
+}
+
+#page5{
+    grid-template-columns: 1fr 1fr;
+}
+
+#page5 .right {
+    grid-template-rows: 1fr 1fr;
+}
+
+#page5 .right .top {
+    background: coral;
+}
+#page5 .right .bottom {
+    background: black;
+    color:white;
+}
+
+#page5 .left {
+    background: palegoldenrod;
+}
+
+#page6 {
+   grid-template-columns: 1fr 1fr;
+   display: flex;
+}
+
+#page6 .right{
+    grid-template-rows: 1fr 1fr 1fr 1fr 1fr;
+    width: 30%;
+    height: 100vh;
+    
+.row1 { background-color: lightcoral; }
+.row2 { background-color: lightblue; }
+.row3 { background-color: lightgreen; }
+.row4 { background-color: lightgoldenrodyellow; }
+.row5 { background-color: lightpink; }
+
+}   
+
+#page6 .left {
+    width: 70%;
+    background-color:darkslategray;
+}
+
+#page7{
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: 1fr 1fr;
+}
+
+#page7 .topleft {
+    background-color: orange;
+}
+
+#page7 .topright {
+    background-color:darkslateblue;
+}
+
+#page7 .downleft {
+    background-color: turquoise;
+}
+
+#page7 .downright {
+    background-color: cadetblue;
+}
+
+#page8 {
+    grid-template-columns: 1fr 1fr;
+    display: flex;
+}
+
+#page8 .left {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: 1fr 1fr 1fr 1fr;
+    height:100vh;
+
+.c1 { background-color: lightcoral; }
+.c2 { background-color: lightblue; }
+.c3 { background-color: lightgreen; }
+.c4 { background-color: khaki; }
+.c5 { background-color: lightpink; }
+.c6 { background-color: plum; }
+.c7 { background-color: lightsalmon; }
+.c8 { background-color: lightseagreen; }
+}
+
+#page8 .right{
+grid-template-rows: 1fr 1fr;
+
+}
+
+#page8 .topright{
+    background-color: midnightblue;
+}
+
+#page8 .downright {
+    background-color: rebeccapurple;
+}   
