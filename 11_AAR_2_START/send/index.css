@@ -24,6 +24,40 @@ body,
     transition: all .6s ease-in-out;
 }
 
+
+#page1{
+    background-color: blue;
+}
+#page2{
+    background-color: lawngreen;
+}
+
+#msg{
+    text-shadow: 4px 4px 12px white;
+}
+
 .show {
     top: 0;
 }
+
+
+
+#toast{
+    width:20rem;
+    height:8rem;
+    background-color: gray;
+    position: fixed;
+    top:-12rem;
+    right:2rem;
+    padding:1rem;
+    border-radius: 1rem;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+    transition: top 1s ease-in-out;
+    z-index: 4000;
+}
+
+#toast.toastShow{
+    top:2rem;
+
+}
+
