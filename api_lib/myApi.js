@@ -1,6 +1,4 @@
-// Dine genbrugelige API-funktioner kommer her.
-
-
+// Kopiér og videreudvikl funktionerne fra dit personlige API her.
 //Demands an html element called with id toast
 function showToast(txt, timeout=2000, type="notify"){
         var toast = select('#toast')
@@ -20,7 +18,7 @@ async function getJSON( endpoint ){
     
     //hvis response er ok henter vi json data
     var json = await res.json()
-    console.log(`hentede ${json.length} poster fra fetchJSON`)
+    console.log('hentede poster fra fetchJSON')
     return json
 
 }
@@ -30,4 +28,16 @@ function shiftPage(newPage){
     select(currentPage).removeClass('show')
     select(newPage).addClass('show')
     currentPage = newPage
+}
+
+
+function createCard(tilte = "", text = "", image = ""){
+    var card = createDiv().addClass('card')
+    card.child(createImg(image))
+    card.child(createElement('h2', tilte))
+    card.child(createElement('p', text))
+    return card 
+   
+    
+    
 }

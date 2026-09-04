@@ -1,0 +1,39 @@
+body {
+    margin: 0;
+    overflow: hidden;
+}
+
+.page {
+    width: 100vw;
+    height: 100vh;
+    overflow: scroll;
+    display: grid;
+    position: fixed;
+    top: 100vh;
+    
+}
+
+.page.show {
+    top: 0;
+}
+
+#players{
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+  
+}
+
+#playerA img, #playerB img{
+    width: 300px;
+    height: 300px;
+    place-items: center;
+}
+
+#characters{
+    display: grid;
+    grid-template-columns: repeat(6, 1fr);
+    grid-template-rows: 300px;
+    gap:1rem;
+    padding: 1rem;
+}
+
