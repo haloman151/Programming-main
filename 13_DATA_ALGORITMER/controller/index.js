@@ -1,5 +1,8 @@
 var client
 var topic = "karaktervalg"
+var me
+
+
 function setup() {
     // Bind controllerens knapper og send handlinger over MQTT her.
     // Hent kataloget, lyt på MQTT og opdatér fællesskærmen her.
@@ -16,6 +19,15 @@ function setup() {
         showToast('Modtog besked: ${ms.toString()}')
         var msObject = JSON.parse(ms.toString())
         console.log(msObject.name)
+
+
+
+        if(msObject.action == "choose character"){
+            if(select(`#player${msObject.name}`)){
+                select(`#player${msObject.name}`).hide()
+            }
+    
+        }
     })
 
     
@@ -23,20 +35,25 @@ function setup() {
 
 
     select('#playerA').mousePressed(()=> choosePlayer('A'))
+    select('#playerB').mousePressed(()=> choosePlayer('B'))
 }
 
 
-function choosePlayer(){
+function choosePlayer(n){
+    me = n
+    var obj = {
+        "name":n,
+        action:"choose character"
+    }
+    obj = JSON.stringify(obj)
+    client.publish(topic, obj)
+    select('#name').html(`I am ${me} `)
+    shiftPage('#choose')
 
 }
 
 
-function showCharacters(characters){
-    characters.map(c => {
-        var card = createCard(c.name, c.species, c.image)
-        select('#characters').child(card)
-    })
-}
+
 
 
 

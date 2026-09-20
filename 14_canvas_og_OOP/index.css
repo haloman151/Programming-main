@@ -1,0 +1,67 @@
+body, * {
+    margin: 0;
+    overflow: hidden;
+}
+
+canvas {
+    display: block;
+}
+
+.page{
+    width: 100vw;
+    height: 100vh;
+    overflow: hidden;
+    position: fixed;
+    left: -100vw;
+    right: 0;
+    pointer-events: none;
+    display: grid;
+    transition: ease-in-out;
+    place-items: center;
+
+}
+
+#info{
+    position: fixed;
+    bottom: 2rem;
+    right: 2rem;
+    background-color: whitesmoke;
+    height: 10rem;
+    width: 10rem;
+    border-radius: 1rem;
+    display: grid;
+    place-items: center;
+    z-index: 2;
+}
+
+.page.show{
+    left:0;
+    opacity: 1;
+    pointer-events: auto;
+    z-index: 1000000;
+}
+
+#page1{
+    background-color: blue;
+    height: 100%;
+}
+
+#page3{
+background-color: brown;
+}
+
+#startButton{
+    padding: 1rem;
+    border-radius: 0.5rem;
+    width: 300px;
+    height: 150px;
+    place-items: center;
+}
+
+#restartButton{
+    padding: 1rem;
+    border-radius: 0.5rem;
+    width: 300px;
+    height: 150px;
+    place-items: center;
+}

@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="da">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Canvas og OOP</title>
+    <link rel="stylesheet" href="./index.css">
+    <script src="https://cdn.jsdelivr.net/npm/p5@1.11.10/lib/p5.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/p5.sound@0.4.1/dist/p5.sound.min.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/11.6.0/firebase-app-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/11.6.0/firebase-firestore-compat.js"></script>
+    
+</head>
+<body>
+    <div id="toast"></div>
+    <div id="info"></div>
+    <main>
+        <div class="page" id="page1">
+            <h1>jumping ball game</h1>
+            <button id="startButton">start game</button>
+            
+        </div>
+        <div id="page2" class="page">
+            
+            
+        </div>
+        <div id="page3" class="page">
+            <h1>gameover</h1>
+            <div id="stats">
+                <div id="highScore">
+                </div>
+                <input type="text" id="name">
+                <button id="saveHighscore">Gem Highscore</button>
+            </div>
+            <button id="restartButton">try again</button>
+        </div>
+        
+    </main>
+    
+    
+    <script src="./index.js"></script>
+    <script src="/api_lib/myApi.js"></script>
+    <script src="/api_lib/myClasses.js"></script>
+    <script src="./firebase.js"></script>
+</body>
+</html>

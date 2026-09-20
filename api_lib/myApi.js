@@ -23,9 +23,10 @@ async function getJSON( endpoint ){
 
 }
 
+var currentPage
 // skifter til en ny side når kalt 
 function shiftPage(newPage){
-    select(currentPage).removeClass('show')
+    if(currentPage) select(currentPage).removeClass('show')
     select(newPage).addClass('show')
     currentPage = newPage
 }
@@ -41,3 +42,6 @@ function createCard(tilte = "", text = "", image = ""){
     
     
 }
+
+
+

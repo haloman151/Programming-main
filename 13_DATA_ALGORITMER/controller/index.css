@@ -15,3 +15,7 @@ body {
 .page.show {
     top: 0;
 }
+
+#page1{
+    background-color: red;
+}
